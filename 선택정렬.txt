@@ -1,0 +1,33 @@
+public class SelectionSort {
+    public static void main(String[] args) {
+        int[] a = {13, 8, 4, 26, 14, 51, 1, 81, 9, 29};
+        int i,p,temp;
+        for(i=0;i<10;i++)
+        {
+            p = minimum(a, 10, i);
+            temp = a[i];
+            a[i]=a[p];
+            a[p] = temp;
+        }
+        System.out.print("\n선택 정렬 후\n");
+        for(i=0;i<10;i++)
+        {
+            System.out.println(a[i]);
+        }
+    }
+    public static int minimum(int a[], int n, int i)
+    {
+        int min,p,j;
+        min = a[i];
+        p = i;
+        for(j=i+1;j<10;j++)
+        {
+            if(a[j]<min)
+            {
+                min = a[j];
+                p=j;
+            }
+        }
+        return p;
+    }
+}

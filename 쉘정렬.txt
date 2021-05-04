@@ -1,0 +1,41 @@
+import java.util.*;
+public class ShellSort {
+    static void shell(int[] arr, int num)
+    {
+        int i, j, k, tmp;
+        for (i = num / 2; i> 0; i = i / 2)
+        {
+            for (j = i; j<num; j++)
+            {
+                for(k = j - i; k>= 0; k = k - i)
+                {
+                    if (arr[k+i] >= arr[k])
+                        break;
+                    else
+                    {
+                        tmp = arr[k];
+                        arr[k] = arr[k+i];
+                        arr[k+i] = tmp;
+                    }
+                }
+            }
+        }
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int arr[]= new int[30];
+        int k,  num;
+        System.out.print("원소의 개수 : ");
+        num = sc.nextInt();
+        System.out.print("배열 입력 : ");
+        for (k =  0 ; k<num; k++)
+        {
+            arr[k]=sc.nextInt();
+        }
+        shell(arr, num);
+        System.out.println("정렬된 배열 : ");
+        for (k = 0; k<num; k++)
+            System.out.println(arr[k]);
+    }
+}
